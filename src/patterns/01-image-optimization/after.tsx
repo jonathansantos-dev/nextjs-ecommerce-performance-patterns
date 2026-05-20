@@ -26,7 +26,7 @@
  *   Total transfer: ~18MB → ~2.1MB in images
  */
 
-import Image from 'next/image';
+import Image from "next/image";
 
 interface Product {
   id: string;
@@ -44,8 +44,11 @@ interface ProductCardAfterProps {
   priority?: boolean;
 }
 
-// ✅ next/image with explicit sizing, format negotiation, and lazy loading
-function ProductCardAfter({ product, priority = false }: ProductCardAfterProps) {
+// next/image with explicit sizing, format negotiation, and lazy loading
+function ProductCardAfter({
+  product,
+  priority = false,
+}: ProductCardAfterProps) {
   const discount = product.originalPrice
     ? Math.round((1 - product.price / product.originalPrice) * 100)
     : null;
@@ -53,7 +56,7 @@ function ProductCardAfter({ product, priority = false }: ProductCardAfterProps) 
   return (
     <div className="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
       {/*
-       * ✅ aspect-square container gives the browser the dimensions before
+       * aspect-square container gives the browser the dimensions before
        *    the image loads — no layout shift (CLS = 0)
        */}
       <div className="relative aspect-square bg-gray-100">
@@ -61,14 +64,14 @@ function ProductCardAfter({ product, priority = false }: ProductCardAfterProps) 
           src={product.imageUrl}
           alt={product.name}
           fill
-          // ✅ priority=true → <link rel="preload"> for above-the-fold images
-          // ✅ priority=false (default) → loading="lazy" for below-the-fold
+          // priority=true → <link rel="preload"> for above-the-fold images
+          // priority=false (default) → loading="lazy" for below-the-fold
           priority={priority}
-          // ✅ sizes tells the browser what width the image will be rendered at.
+          // sizes tells the browser what width the image will be rendered at.
           //    Without this, it assumes 100vw and downloads a needlessly large image.
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover"
-          // ✅ quality=85: imperceptible quality loss, ~15% smaller file
+          // quality=85: imperceptible quality loss, ~15% smaller file
           quality={85}
         />
         {discount && (
@@ -79,15 +82,19 @@ function ProductCardAfter({ product, priority = false }: ProductCardAfterProps) 
       </div>
 
       <div className="p-3">
-        <p className="text-xs text-purple-600 font-medium">{product.category}</p>
-        <h3 className="font-medium text-sm mt-1 truncate text-gray-900">{product.name}</h3>
+        <p className="text-xs text-purple-600 font-medium">
+          {product.category}
+        </p>
+        <h3 className="font-medium text-sm mt-1 truncate text-gray-900">
+          {product.name}
+        </h3>
         <div className="flex items-baseline gap-2 mt-2">
           <p className="font-bold text-gray-900">
-            R$ {product.price.toFixed(2).replace('.', ',')}
+            R$ {product.price.toFixed(2).replace(".", ",")}
           </p>
           {product.originalPrice && (
             <p className="text-xs text-gray-400 line-through">
-              R$ {product.originalPrice.toFixed(2).replace('.', ',')}
+              R$ {product.originalPrice.toFixed(2).replace(".", ",")}
             </p>
           )}
         </div>
@@ -107,7 +114,7 @@ export function ProductListingAfter({ products }: ProductListingAfterProps) {
         <ProductCardAfter
           key={product.id}
           product={product}
-          // ✅ First 8 items (two rows on desktop) get priority preload.
+          // First 8 items (two rows on desktop) get priority preload.
           //    Everything else is lazy-loaded — not downloaded until visible.
           priority={index < 8}
         />
@@ -115,3 +122,4 @@ export function ProductListingAfter({ products }: ProductListingAfterProps) {
     </div>
   );
 }
+

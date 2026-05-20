@@ -23,20 +23,20 @@
  * On a store with 100k daily sessions: measurable revenue impact.
  */
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
+import { useState } from "react";
 
-// ✅ dynamic() — checkout is in a separate JS chunk.
+// dynamic() — checkout is in a separate JS chunk.
 //    This import resolves to a ~286KB chunk that is ONLY downloaded
 //    when the user clicks "Abrir Carrinho" for the first time.
 const CheckoutDrawer = dynamic(
-  () => import('./checkout-drawer').then((mod) => mod.CheckoutDrawer),
+  () => import("./checkout-drawer").then((mod) => mod.CheckoutDrawer),
   {
-    // ✅ ssr: false — checkout is a client-only interaction.
+    // ssr: false — checkout is a client-only interaction.
     //    Skipping SSR also removes it from the critical rendering path.
     ssr: false,
 
-    // ✅ loading — shown while the chunk downloads.
+    // loading — shown while the chunk downloads.
     //    A skeleton prevents the "nothing happened" perception when loading is slow.
     loading: () => (
       <div className="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl flex items-center justify-center">
@@ -46,7 +46,7 @@ const CheckoutDrawer = dynamic(
         </div>
       </div>
     ),
-  }
+  },
 );
 
 interface ProductPageAfterProps {
@@ -68,7 +68,7 @@ export function ProductPageAfter({ productName }: ProductPageAfterProps) {
       </button>
 
       {/*
-       * ✅ CheckoutDrawer only mounts when cartOpen is true.
+       * CheckoutDrawer only mounts when cartOpen is true.
        *    When it mounts for the first time, Next.js fetches the
        *    checkout chunk. Subsequent opens use the cached chunk.
        *
@@ -80,11 +80,9 @@ export function ProductPageAfter({ productName }: ProductPageAfterProps) {
        *    they never download the checkout bundle. Ever.
        */}
       {cartOpen && (
-        <CheckoutDrawer
-          isOpen={cartOpen}
-          onClose={() => setCartOpen(false)}
-        />
+        <CheckoutDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
       )}
     </div>
   );
 }
+

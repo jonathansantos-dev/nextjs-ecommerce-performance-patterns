@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build",
+    "analyze": "cross-env ANALYZE=true next build",
     "lighthouse": "lhci autorun"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "postcss": "^8",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "15.3.1"
+    "eslint-config-next": "15.3.1",
+    "cross-env": "^7.0.3"
   }
 }
