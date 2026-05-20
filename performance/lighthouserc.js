@@ -18,10 +18,15 @@
 module.exports = {
   ci: {
     collect: {
-      // Run against the local build (npm run build && npm start)
+      // Start the Next.js production server before collecting.
+      // Requires a prior `npm run build`.
+      startServerCommand: 'npm start',
+      startServerReadyPattern: 'Ready on',
+      startServerReadyTimeout: 30000,
+
       url: [
-        'http://localhost:3000',           // Product listing (patterns 1, 2, 5)
-        'http://localhost:3000/cart',       // Cart page (pattern 4)
+        'http://localhost:3000',                      // Product listing (patterns 1, 2, 5)
+        'http://localhost:3000/cart',                 // Cart page (pattern 4)
         'http://localhost:3000/products/product-001', // Product detail (pattern 1)
       ],
 
