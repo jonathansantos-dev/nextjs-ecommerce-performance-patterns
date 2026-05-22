@@ -2,7 +2,7 @@
 
 A production-oriented reference demonstrating the **hidden performance costs** that silently drain conversion rates in e-commerce frontends — and the patterns that eliminate them.
 
-This repository is the companion to the article *["Hidden Performance Costs of E-commerce: What's Slowing Your Store Without You Knowing"](#)*.
+This repository is the companion to the article *["The Hidden Performance Costs of E-commerce Frontends and How to Fix Them"](https://medium.com/@jonathandossantos.c/the-hidden-performance-costs-of-e-commerce-frontends-and-how-to-fix-them-de4744b67c2c)*.
 
 ---
 
@@ -192,11 +192,4 @@ The patterns documented here emerged from work on high-traffic Brazilian e-comme
 **Jonathan Castro dos Santos** — Senior Frontend Engineer with 10+ years of experience in enterprise web performance and e-commerce architecture.
 
 - GitHub: [github.com/jonathansantos-dev](https://github.com/jonathansantos-dev)
-- LinkedIn: [linkedin.com/in/jonathansantos-dev](https://linkedin.com/in/jonathansantos-dev)
-- Article: [Hidden Performance Costs of E-commerce](#)
-
----
-
-## License
-
-MIT
+- LinkedIn: [linkedin.com/in/jonathansantos-dev](https://li
