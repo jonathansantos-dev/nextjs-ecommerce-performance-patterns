@@ -192,4 +192,11 @@ The patterns documented here emerged from work on high-traffic Brazilian e-comme
 **Jonathan Castro dos Santos** — Senior Frontend Engineer with 10+ years of experience in enterprise web performance and e-commerce architecture.
 
 - GitHub: [github.com/jonathansantos-dev](https://github.com/jonathansantos-dev)
-- LinkedIn: [linkedin.com/in/jonathansantos-dev](https://li
+- LinkedIn: [linkedin.com/in/jonathansantos-dev](https://linkedin.com/in/jonathansantos-dev)
+- Article: [The Hidden Performance Costs of E-commerce Frontends and How to Fix Them](https://medium.com/@jonathandossantos.c/the-hidden-performance-costs-of-e-commerce-frontends-and-how-to-fix-them-de4744b67c2c)
+
+---
+
+## License
+
+MIT
